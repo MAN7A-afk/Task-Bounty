@@ -1,5 +1,4 @@
 #![no_std]
-
 //! # TaskBounty - Decentralized Task & Reward Board
 //!
 //! A Soroban smart contract for trustless task management and bounty payments on Stellar.
@@ -11,6 +10,7 @@
 //! - Automatic payouts
 //! - Dispute resolution
 //! - Multi-token support (XLM and SAC tokens)
+extern crate alloc;
 
 mod types;
 mod storage;
@@ -198,6 +198,29 @@ impl TaskBountyContract {
         query::get_all_tasks(&env)
     }
 
+    /// Filter tasks by status.
+    pub fn get_tasks_by_status(env: Env, status: TaskStatus) -> Vec<Task> {
+        query::get_tasks_by_status(&env, status)
+    }
+
+    /// Filter tasks by exact reward amount.
+    pub fn get_tasks_by_reward(env: Env, reward: i128) -> Vec<Task> {
+        query::get_tasks_by_reward(&env, reward)
+    }
+
+    /// Filter tasks by minimum reward amount.
+    pub fn get_tasks_by_min_reward(env: Env, min_reward: i128) -> Vec<Task> {
+        query::get_tasks_by_min_reward(&env, min_reward)
+    }
+
+    /// Filter tasks whose deadline is on or before the provided cutoff.
+    pub fn get_tasks_before_deadline(env: Env, deadline: u64) -> Vec<Task> {
+        query::get_tasks_before_deadline(&env, deadline)
+    }
+
+    /// Search task titles and descriptions for a query string.
+    pub fn search_tasks(env: Env, query_str: String) -> Vec<Task> {
+        query::search_tasks(&env, query_str)
     /// Filter tasks by category.
     pub fn get_tasks_by_category(env: Env, category: String) -> Vec<Task> {
         query::get_tasks_by_category(&env, category)
