@@ -208,12 +208,19 @@ List any breaking changes (or "None").
 
 ### Checklist before requesting review
 
-- [ ] Tests added/updated and passing (`cargo test`)
-- [ ] No compiler warnings (`cargo clippy`)
-- [ ] Documentation updated if public API changed
-- [ ] PR description complete with issue reference
+A PR template with the full checklist is automatically loaded when you open a PR on GitHub (see [`.github/pull_request_template.md`](./.github/pull_request_template.md)). The checklist covers:
+
 - [ ] Branch is up to date with `main`
-- [ ] Screenshots/recordings included for UI changes
+- [ ] PR title follows Conventional Commits format
+- [ ] PR description complete with issue reference (`Closes #<issue-number>`)
+- [ ] Tests added/updated and passing (`cargo test` / `npm run build`)
+- [ ] No compiler warnings (`cargo clippy -- -D warnings`)
+- [ ] Code formatted (`cargo fmt` / ESLint)
+- [ ] Documentation updated if public API changed
+- [ ] `CONTRACT_API.md` updated if contract interface changed
+- [ ] `require_auth()` called on all state-changing contract operations
+- [ ] Events emitted for all state changes (smart contract PRs)
+- [ ] Screenshots/recordings included for UI changes (frontend PRs)
 
 ### Scope
 
