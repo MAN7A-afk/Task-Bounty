@@ -467,6 +467,10 @@ pub fn has_submitted(env: Env, task_id: u64, contributor: Address) -> bool
 
 All events are emitted with two-symbol topics and a tuple payload.
 
+For a complete event reference, including purpose, payload structure, and
+examples for both the TaskBounty reference contract and the active AutoShare
+Soroban contract, see [SMART_CONTRACT_EVENTS.md](./SMART_CONTRACT_EVENTS.md).
+
 ### TaskCreated
 
 Emitted when a new task is created.
