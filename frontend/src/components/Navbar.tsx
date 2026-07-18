@@ -10,6 +10,7 @@ const NAV_ITEMS = [
   { name: "Groups", href: "/groups" },
   { name: "Fundraising", href: "/fundraising" },
   { name: "Transactions", href: "/user/transactions" },
+  { name: "Completed Tasks", href: "/completed-tasks" },
   { name: "Profile Analytics", href: "#" },
 ];
 
